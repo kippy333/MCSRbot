@@ -228,3 +228,7 @@ __marimo__/
 .env.*
 !.env.example
 !*.env.example
+
+*.json
+links.json
+src/bot/data/links.json

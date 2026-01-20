@@ -6,6 +6,7 @@ log = logging.getLogger(__name__)
 
 INITIAL_EXTENSIONS = (
     "bot.cogs.admin",
+    "bot.cogs.link",
     "bot.cogs.ranked",
     "bot.cogs.events",
 )

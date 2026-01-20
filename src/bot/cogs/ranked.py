@@ -8,5 +8,10 @@ class Ranked(commands.Cog):
     async def ping(self, ctx: commands.Context) -> None:
         await ctx.send("pong")
 
+    @commands.command(name="auth")
+    async def auth(self, ctx: commands.Context) -> None:
+        await ctx.send(str(ctx.author.id) + " " + str(ctx.author.name))
+
+    
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(Ranked(bot))
