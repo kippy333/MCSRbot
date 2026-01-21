@@ -1,4 +1,6 @@
 # src/bot/cogs/link.py
+import logging
+log = logging.getLogger(__name__)
 from discord.ext import commands
 
 from bot.services.minecraft import UsernameToUuid
@@ -41,6 +43,14 @@ class Link(commands.Cog):
                 discord_user=ctx.author.name,
             )
 
+            log.info(
+                "link | guild=%s (%s) user=%s (%s) mc=%s (%s)",
+                ctx.guild.name, ctx.guild.id,
+                ctx.author.name, ctx.author.id,
+                mc_name, mc_uuid
+            )
+
+
             await ctx.send(f"✅ Linked you to **{mc_name}** (`{mc_uuid}`)")
 
     @commands.command(name="unlink")
@@ -54,6 +64,13 @@ class Link(commands.Cog):
         if deleted is None:
             await ctx.send("You're not linked in this server.")
             return
+        
+        log.info(
+            "unlink | guild=%s (%s) user=%s (%s) mc=%s (%s)",
+            ctx.guild.name, ctx.guild.id,
+            ctx.author.name, ctx.author.id,
+            deleted["mc_name"], deleted["mc_uuid"]
+        )
 
         await ctx.send(f"✅ Unlinked from **{deleted['mc_name']}**")
 
