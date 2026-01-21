@@ -1,6 +1,6 @@
 from discord.ext import commands
 from bot.services.mcsrranked import getStats
-from bot.storage.links_store import is_user_linked, set_link, delete_link, get_link
+from bot.storage.links_store import get_link
 from bot.services.mcsrranked import format_ms
 import discord
 
